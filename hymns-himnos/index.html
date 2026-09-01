@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hymns &amp; Himnos</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#d9ecd4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="page">
+  <header class="header">
+    <h1>Hymns &amp; Himnos</h1>
+  </header>
+
+  <section class="player" aria-label="Player">
+    <p class="now-playing-label">Now playing</p>
+    <h2 class="now-playing-title" id="nowPlayingTitle">Loading hymns…</h2>
+
+    <div class="transport">
+      <button id="prevBtn" class="transport-btn" aria-label="Previous hymn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+      </button>
+      <button id="playBtn" class="transport-btn transport-btn--main" aria-label="Play">
+        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+      </button>
+      <button id="nextBtn" class="transport-btn" aria-label="Next hymn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+      </button>
+    </div>
+
+    <div class="scrub-row">
+      <span id="curTime" class="time">0:00</span>
+      <input id="scrub" class="scrub" type="range" min="0" max="100" value="0" step="1" aria-label="Seek">
+      <span id="durTime" class="time">0:00</span>
+    </div>
+
+    <div class="volume-row">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="vol-icon"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      <input id="volume" class="volume" type="range" min="0" max="1" value="1" step="0.01" aria-label="Volume">
+    </div>
+  </section>
+
+  <section class="playlist-section" aria-label="Hymn list">
+    <h3 class="playlist-heading">All hymns</h3>
+    <ol id="playlist" class="playlist"></ol>
+  </section>
+</main>
+
+<audio id="audio" preload="metadata"></audio>
+
+<script src="app.js"></script>
+</body>
+</html>
